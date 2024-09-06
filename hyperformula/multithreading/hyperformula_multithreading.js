@@ -42,12 +42,14 @@ for (let j = 0; j < nCols; j++){
 //Declare a JSONRPC wrapper for the hyperformula web worker
 const oWorker = new RpcWorker("hyperformula_worker.js");
 function applyChangesFromWorker(oCalculationChanges){
-	Object.keys(oCalculationChanges).forEach((sKey)=>{
-		const nRow = parseInt(sKey, 10);
-		Object.keys(oCalculationChanges[nRow]).forEach((sColKey)=>{
-			const nCol = parseInt(sColKey, 10);
-			console.log("setDataAtCell", nRow, nCol, oCalculationChanges[nRow][nCol]);
-			oHotTable.setDataAtCell(nRow, nCol, oCalculationChanges[nRow][nCol], "custom");
+	oHotTable.batch(()=>{
+		Object.keys(oCalculationChanges).forEach((sKey)=>{
+			const nRow = parseInt(sKey, 10);
+			Object.keys(oCalculationChanges[nRow]).forEach((sColKey)=>{
+				const nCol = parseInt(sColKey, 10);
+				console.log("setDataAtCell", nRow, nCol, oCalculationChanges[nRow][nCol]);
+				oHotTable.setDataAtCell(nRow, nCol, oCalculationChanges[nRow][nCol], "custom");
+			});
 		});
 	});
 }
