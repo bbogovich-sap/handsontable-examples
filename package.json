@@ -1,0 +1,14 @@
+{
+	"name": "handsontable_formula_multithreading",
+	"version": "0.0.0",
+	"private": true,
+	"type": "commonjs",
+	"devDependencies": {
+		"serve": "latest",
+		"open": "latest"
+	},
+	"scripts": {
+		"start": "serve .",
+		"open": "open http://localhost:3000/"
+	}
+}

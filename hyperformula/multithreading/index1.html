@@ -1,0 +1,24 @@
+<!-- Page is index1 because Node's serve module removes index.html from the URL and confuses everything-->
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/handsontable@10.0/dist/handsontable.full.js"></script>
+		<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@10.0/dist/handsontable.full.min.css" /> 
+		<script src="./RpcWorker.js"></script>
+		<script src="./hyperformula_multithreading.js"></script>
+		<style>
+			#calcMessage {
+				position: absolute;
+				top: 50%;
+				left: 250px;
+				font-size: 24px;
+				color: white;
+				background-color: red;
+				z-index: 255;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="calcMessage">Calculating Formulas.........</div>
+		<div id="hot"></div>
+	</body>
+</html>
